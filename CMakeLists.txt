@@ -3,4 +3,20 @@ project(Abracadabra)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Abracadabra main.cpp)
+add_executable(Abracadabra main.cpp
+        Evil.cpp
+        Evil.h
+        NPC.cpp
+        NPC.h
+        Paladin.cpp
+        Paladin.h
+        Player.cpp
+        Player.h
+        Spell.cpp
+        Spell.h
+        Warrior.cpp
+        Warrior.h
+        Weapon.cpp
+        Weapon.h
+        Wizard.cpp
+        Wizard.h)

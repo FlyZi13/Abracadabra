@@ -1,0 +1,8 @@
+//
+// Created by FlyZi on 16.10.2026.
+//
+
+#ifndef ABRACADABRA_PALADIN_H
+#define ABRACADABRA_PALADIN_H
+
+#endif //ABRACADABRA_PALADIN_H

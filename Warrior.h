@@ -1,0 +1,8 @@
+//
+// Created by FlyZi on 16.10.2026.
+//
+
+#ifndef ABRACADABRA_WARRIOR_H
+#define ABRACADABRA_WARRIOR_H
+
+#endif //ABRACADABRA_WARRIOR_H
