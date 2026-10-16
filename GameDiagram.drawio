@@ -1,0 +1,72 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram id="rpg-class-diagram" name="Диаграмма классов">
+    <mxGraphModel dx="1301" dy="964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1950" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="player" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-weight:bold;text-align:center;padding:4px 2px;&quot;&gt;Player&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;- currentCharacter: unique_ptr&amp;lt;NPC&amp;gt; = nullptr&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ Create(character: unique_ptr&amp;lt;NPC&amp;gt;): void&lt;br/&gt;+ GetCharacter(): unique_ptr&amp;lt;NPC&amp;gt;&lt;br/&gt;+ GetInfo(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="260" x="710" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-20" edge="1" parent="1" source="npc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=diamond;endFill=1;" target="player">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="npc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-weight:bold;text-align:center;padding:4px 2px;&quot;&gt;NPC&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;# name: string&amp;nbsp;&lt;br&gt;# damage: uint&amp;nbsp;&lt;br&gt;# health: uint&lt;br&gt;# lvl: short&lt;br&gt;# armor: uint&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ GetDamage(): uint&lt;br&gt;+ GetHealth(): uint&lt;br&gt;+ &lt;font style=&quot;font-size: 11px;&quot;&gt;SetHealth(health: uint): void&lt;/font&gt;&lt;br&gt;+ GetInfo(): void {virtual}&lt;br&gt;+ Create(): void {virtual}&lt;br&gt;+ LvlUp(): void&lt;br&gt;+ Recalculate(): void&lt;br&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="160" x="760" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="weapon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-size:11px;font-style:italic;text-align:center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237)); font-size: 12px; font-weight: bold;&quot;&gt;Weapon&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ name: string&amp;nbsp;&lt;br&gt;+ damage: uint&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="460" y="647.5" as="geometry" />
+        </mxCell>
+        <mxCell id="spell" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-size:11px;font-style:italic;text-align:center;&quot;&gt;&lt;span style=&quot;font-weight: bold; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237)); font-size: 12px;&quot;&gt;Spell&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ name: string&lt;br&gt;+ damage: uint&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="100" x="780" y="647.5" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-18" edge="1" parent="1" source="warrior" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;" target="npc">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="695" y="580" />
+              <mxPoint x="840" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-21" edge="1" parent="1" source="warrior" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;" target="weapon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-22" connectable="0" parent="NFhastAJFidVRKJmYZ4L-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="носит" vertex="1">
+          <mxGeometry relative="1" x="0.0908" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="warrior" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-weight:bold;text-align:center;padding:4px 2px;&quot;&gt;Warrior&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;# strenght: short&lt;br&gt;# weapons: vector&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ Create(): void&lt;br&gt;+ GetInfo(): void&lt;br&gt;+ GetWeapon(): void&lt;br&gt;+ Recalculate(): void&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="130" x="630" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-19" edge="1" parent="1" source="wizard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;" target="npc">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1063" y="580" />
+              <mxPoint x="840" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-24" edge="1" parent="1" source="wizard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=openThin;endFill=0;" target="spell">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-25" connectable="0" parent="NFhastAJFidVRKJmYZ4L-24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;применяет/хранит&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.3025" y="-2" as="geometry">
+            <mxPoint x="18" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wizard" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-weight:bold;text-align:center;padding:4px 2px;&quot;&gt;Wizard&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;# intellect: short&lt;br&gt;# spells: vector&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ Create(): void&lt;br&gt;+ GetInfo(): void&lt;br&gt;+ LearnSpell(): void&lt;br&gt;+ Recalculate(): void&lt;br&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="125" x="990" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-27" edge="1" parent="1" source="paladin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;" target="warrior">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFhastAJFidVRKJmYZ4L-28" edge="1" parent="1" source="paladin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;" target="wizard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="paladin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.3;fontColor=#000000;fontSize=12;" value="&lt;div style=&quot;font-weight:bold;text-align:center;padding:4px 2px;&quot;&gt;Paladin&lt;/div&gt;&lt;div style=&quot;border-top:1px solid #000000;padding:5px 7px;line-height:1.35;&quot;&gt;+ Create(): void&lt;br&gt;+ GetInfo(): void&lt;br&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="100" x="830" y="800" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
