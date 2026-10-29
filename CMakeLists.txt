@@ -19,4 +19,5 @@ add_executable(Abracadabra main.cpp
         Wizard.cpp
         Wizard.h
         NPC.cpp
-        NPC.h)
+        NPC.h
+)

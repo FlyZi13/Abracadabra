@@ -7,6 +7,23 @@
 #include <iostream>
 #include <memory>
 
+// enum class хранит ограниченный набор типизированных значений.
+// В отличие от обычного enum значения не преобразуются в int автоматически.
+
+enum class CharacterType {
+    Warrior = 1,
+    Wizard,
+    Paladin
+};
+
+enum class WeaponQuality {
+    Common = 1,
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary
+};
+
 // Ключевые понятия принципы ООП:
 // 1) Наследование
 // 2) Полиморфизм
@@ -30,22 +47,46 @@ int main() {
     Player player;
     cout << "Присядь путник у костра и расскажи кто ты\n";
     cout << "\t1 - воин\n\t2 - маг \n\t3 - паладин\n";
-    short choise = 0;
-    cin >> choise;
-    switch (choise) {
-        case 1:
+
+    int characterChoice = 0;
+    cin >> characterChoice;
+
+
+    if (characterChoice < static_cast<int>(CharacterType::Warrior) ||
+        characterChoice > static_cast<int>(CharacterType::Paladin)) {
+        cout << "Таких героев еще не было в наших краях. Возвращайся позже!\n";
+        return 0;
+    }
+
+    const auto characterType = static_cast<CharacterType>(characterChoice);
+    switch (characterType) {
+        case CharacterType::Warrior:
             player.Create(make_unique<Warrior>());
             break;
-        case 2:
+        case CharacterType::Wizard:
             player.Create(make_unique<Wizard>());
             break;
-        case 3:
+        case CharacterType::Paladin:
             player.Create(make_unique<Paladin>());
             break;
-        default:
-            cout << "Таких героев еще не было в наших краях. Возвращайся позже!\n";
-            break;
     }
+
+    cout << "Выбери качество оружия:\n"
+         << "\t1 - обычное\n\t2 - необычное\n\t3 - редкое\n"
+         << "\t4 - эпическое\n\t5 - легендарное\n"
+         << "Твой выбор: ";
+    int weaponChoice = 0;
+    cin >> weaponChoice;
+
+    if (weaponChoice < static_cast<int>(WeaponQuality::Common) ||
+        weaponChoice > static_cast<int>(WeaponQuality::Legendary)) {
+        cout << "Такого качества оружия не существует.\n";
+        return 0;
+    }
+
+    const auto weaponQuality = static_cast<WeaponQuality>(weaponChoice);
+    cout << "Числовое значение качества оружия: "
+         << static_cast<int>(weaponQuality) << "\n";
 
     takeDamage(player.GetCharacter(), 5);
 

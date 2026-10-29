@@ -1,5 +1,4 @@
 #include "Evil.h"
-
 #include <iostream>
 
 using namespace std;
