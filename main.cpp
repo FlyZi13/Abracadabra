@@ -57,19 +57,23 @@ int main() {
 
     CharacterType characterType;
     characterType = static_cast<CharacterType>(characterChoice);
+
     switch (characterType) {
         case CharacterType::Warrior:
             cout << "\nТы выбрал Воина — сталь и отвага станут твоей опорой.\n";
             player.Create(make_unique<Warrior>());
             break;
+
         case CharacterType::Wizard:
             cout << "\nТы выбрал Мага — знания и заклинания будут твоим оружием.\n";
             player.Create(make_unique<Wizard>());
             break;
+
         case CharacterType::Paladin:
             cout << "\nТы выбрал Паладина — твой путь объединяет меч и магию.\n";
             player.Create(make_unique<Paladin>());
             break;
+
         default:
             cout << "Такого героя нет. Возвращайся позже!\n";
             return 0;
@@ -79,16 +83,12 @@ int main() {
          << "\t1 - Обычное\n\t2 - Необычное\n\t3 - Редкое\n"
          << "\t4 - Эпическое\n\t5 - Легендарное\n\n"
          << "Твой выбор: ";
+
     int weaponChoice = 0;
     cin >> weaponChoice;
 
-    if (weaponChoice < static_cast<int>(WeaponQuality::Common) ||
-        weaponChoice > static_cast<int>(WeaponQuality::Legendary)) {
-        cout << "Такого качества оружия не существует.\n";
-        return 0;
-    }
-
-    WeaponQuality weaponQuality = static_cast<WeaponQuality>(weaponChoice);
+    WeaponQuality weaponQuality;
+    weaponQuality = static_cast<WeaponQuality>(weaponChoice);
 
     cout << "\nСвойства выбранного оружия:\n";
 
@@ -108,6 +108,9 @@ int main() {
         case WeaponQuality::Legendary:
             cout << "Легендарное — +20 к урону, +10 к защите и +15% к шансу критического удара.\n";
             break;
+        default:
+            cout << "Такого качества оружия не существует.\n";
+            return 0;
     }
 
     // Для enum class числовой индекс получают явным преобразованием static_cast.
