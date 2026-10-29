@@ -45,35 +45,39 @@ int main() {
     // cout << endl;
     // Wizard wizard1();
     Player player;
-    cout << "Присядь путник у костра и расскажи кто ты\n";
-    cout << "\t1 - воин\n\t2 - маг \n\t3 - паладин\n";
+    cout << "Присядь, путник, у костра и расскажи, кто ты:\n\n";
+    cout << "\t1 - Воин   — мастер ближнего боя, сильный и выносливый.\n";
+    cout << "\t2 - Маг    — повелитель заклинаний с высоким интеллектом.\n";
+    cout << "\t3 - Паладин — защитник, сочетающий силу и магию.\n\n";
+    cout << "Твой выбор: ";
 
     int characterChoice = 0;
     cin >> characterChoice;
 
 
-    if (characterChoice < static_cast<int>(CharacterType::Warrior) ||
-        characterChoice > static_cast<int>(CharacterType::Paladin)) {
-        cout << "Таких героев еще не было в наших краях. Возвращайся позже!\n";
-        return 0;
-    }
-
-    const auto characterType = static_cast<CharacterType>(characterChoice);
+    CharacterType characterType;
+    characterType = static_cast<CharacterType>(characterChoice);
     switch (characterType) {
         case CharacterType::Warrior:
+            cout << "\nТы выбрал Воина — сталь и отвага станут твоей опорой.\n";
             player.Create(make_unique<Warrior>());
             break;
         case CharacterType::Wizard:
+            cout << "\nТы выбрал Мага — знания и заклинания будут твоим оружием.\n";
             player.Create(make_unique<Wizard>());
             break;
         case CharacterType::Paladin:
+            cout << "\nТы выбрал Паладина — твой путь объединяет меч и магию.\n";
             player.Create(make_unique<Paladin>());
             break;
+        default:
+            cout << "Такого героя нет. Возвращайся позже!\n";
+            return 0;
     }
 
-    cout << "Выбери качество оружия:\n"
-         << "\t1 - обычное\n\t2 - необычное\n\t3 - редкое\n"
-         << "\t4 - эпическое\n\t5 - легендарное\n"
+    cout << "\nВыбери качество оружия:\n\n"
+         << "\t1 - Обычное\n\t2 - Необычное\n\t3 - Редкое\n"
+         << "\t4 - Эпическое\n\t5 - Легендарное\n\n"
          << "Твой выбор: ";
     int weaponChoice = 0;
     cin >> weaponChoice;
@@ -84,9 +88,31 @@ int main() {
         return 0;
     }
 
-    const auto weaponQuality = static_cast<WeaponQuality>(weaponChoice);
-    cout << "Числовое значение качества оружия: "
-         << static_cast<int>(weaponQuality) << "\n";
+    WeaponQuality weaponQuality = static_cast<WeaponQuality>(weaponChoice);
+
+    cout << "\nСвойства выбранного оружия:\n";
+
+    switch (weaponQuality) {
+        case WeaponQuality::Common:
+            cout << "Обычное — надёжное оружие без дополнительных улучшений.\n";
+            break;
+        case WeaponQuality::Uncommon:
+            cout << "Необычное — +2 к урону и +1 к защите.\n";
+            break;
+        case WeaponQuality::Rare:
+            cout << "Редкое — +5 к урону, +3 к защите и +5% к шансу критического удара.\n";
+            break;
+        case WeaponQuality::Epic:
+            cout << "Эпическое — +10 к урону, +6 к защите и +10% к шансу критического удара.\n";
+            break;
+        case WeaponQuality::Legendary:
+            cout << "Легендарное — +20 к урону, +10 к защите и +15% к шансу критического удара.\n";
+            break;
+    }
+
+    // Для enum class числовой индекс получают явным преобразованием static_cast.
+    cout << "Индекс персонажа: " << static_cast<int>(characterType) << "\n";
+    cout << "Индекс качества оружия: " << static_cast<int>(weaponQuality) << "\n";
 
     takeDamage(player.GetCharacter(), 5);
 
